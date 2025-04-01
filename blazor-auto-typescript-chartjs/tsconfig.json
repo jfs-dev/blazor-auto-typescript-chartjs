@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "outDir": "./wwwroot/js",
+        "target": "es6",
+        "module": "es6",
+        "moduleResolution": "node"
+    },
+    "include": ["TypeScript"],
+    "exclude": ["node_modules"]
+}

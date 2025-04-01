@@ -1,0 +1,77 @@
+﻿@page "/chart-js"
+@rendermode InteractiveServer
+@inject IJSRuntime JS
+
+<PageTitle>Chart.js</PageTitle>
+
+<h1>Gráfico</h1>
+
+<canvas id="chartCanvas" width="400" height="200"></canvas>
+<button class="btn btn-primary" @onclick="UpdateChart">Atualizar Indicadores</button>
+
+@code {
+    private List<int> IndicatorsData = new() { 10, 20, 30, 40, 50 };
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var config = new
+            {
+                type = "bar",
+                data = new
+                {
+                    labels = new[] { "Jan", "Fev", "Mar", "Abr", "Mai" },
+                    datasets = new[]
+                    {
+                        new
+                        {
+                            label = "Indicadores",
+                            data = IndicatorsData,
+                            backgroundColor = "rgba(75, 192, 192, 0.2)",
+                            borderColor = "rgba(75, 192, 192, 1)",
+                            borderWidth = 1
+                        }
+                    }
+                },
+                options = new
+                {
+                    responsive = true,
+                    scales = new
+                    {
+                        y = new { beginAtZero = true }
+                    }
+                }
+            };
+
+            await JS.InvokeVoidAsync("initializeChart", "chartCanvas", config);
+        }
+    }
+
+    private async Task UpdateChart()
+    {
+        IndicatorsData = new List<int> { 15, 25, 35, 45, 55 };
+        var updatedData = new
+        {
+            labels = new[] { "Jan", "Fev", "Mar", "Abr", "Mai" },
+            datasets = new[]
+            {
+                new
+                {
+                    label = "Indicadores",
+                    data = IndicatorsData,
+                    backgroundColor = "rgba(255, 99, 132, 0.2)",
+                    borderColor = "rgba(255, 99, 132, 1)",
+                    borderWidth = 1
+                }
+            }
+        };
+
+        await JS.InvokeVoidAsync("updateChartData", updatedData);
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        await JS.InvokeVoidAsync("destroyChart");
+    }    
+}
