@@ -41,7 +41,7 @@ Criar o projeto Blazor
 Instalar a biblioteca Chart.Js e copiar os arquivos gerados para o diretório de distribuição
 ><code>npm install chart.js</code>
 
-Após configurar arquivo tsconfig.json no projeto e escrever seus scripts em TypeScript, basta executar o comando <code>ts</code> para transpilar os arquivos TypeScript para JavaScript.
+Após configurar o arquivo tsconfig.json no projeto e escrever seus scripts em TypeScript, basta executar o comando <code>ts</code> para transpilar os arquivos TypeScript para JavaScript.
 
 <div align="center">
     <img src="https://github.com/user-attachments/assets/bd63cded-1672-43e3-b66e-01d3e56dbc11"</img>
