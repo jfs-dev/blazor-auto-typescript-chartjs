@@ -9,8 +9,6 @@ Integrando o TypeScript em um projeto Blazor com C#, para interoperar com o Java
 ## Sobre o projeto
 Este projeto mostra como integrar o TypeScript em um projeto Blazor com C#, para interoperar com o JavaScript renderizando gráficos da biblioteca Chart.Js.
 
-Integrando o TypeScript em um projeto Blazor com C#, para interoperar com o JavaScript renderizando gráficos da biblioteca Chart.Js. (.NET 10 Preview 2) 
-
 Embora o Blazor seja um framework que utiliza C# para criar aplicações web, ele permite integração com JavaScript, e o TypeScript pode ser utilizado como uma extensão do JavaScript nessa integração.
 
 O TypeScript pode ser usado para manipulação de DOM, integração com APIs externas ou até tarefas complexas de front-end, enquanto o Blazor gerencia a lógica de aplicação em C#.
